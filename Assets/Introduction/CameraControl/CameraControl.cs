@@ -54,5 +54,9 @@ public class CameraControl : MonoBehaviour
 			
 			yield return 0;	
 		}
+		
+		transform.position = endPos;
+		transform.rotation = endRot;
+			
 	}
 }

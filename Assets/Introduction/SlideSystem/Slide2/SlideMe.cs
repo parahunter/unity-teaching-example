@@ -15,14 +15,21 @@ public class SlideMe : Slide
 	}
 
 	#region implemented abstract members of Slide
-	public override void OnSlideEnter ()
+	protected override void _OnSlideEnter ()
 	{
+		state = Slide.State.Active;
 		//throw new System.NotImplementedException ();
 	}
 
-	public override void OnSlideExit ()
+	protected override void _OnSlideExit ()
 	{
+		
 		//	throw new System.NotImplementedException ();
+	}
+	
+	public override void OnSlideFinalise()
+	{
+		
 	}
 	#endregion
 }

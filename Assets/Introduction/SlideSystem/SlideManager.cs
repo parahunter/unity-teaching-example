@@ -16,7 +16,8 @@ public class SlideManager : MonoBehaviour
 	void Start () 
 	{
 		currentSlide = slides[currentIndex];
-		currentSlide.OnSlideEnter();
+		currentSlide.OnSlideEnter(this);
+		currentSlide.SetCameraTarget(0f);
 	}
 	
 	// Update is called once per frame
@@ -43,15 +44,30 @@ public class SlideManager : MonoBehaviour
 			SwitchSlide(-1);		
 	}
 	
+	int direction;
+	public void OnSlideFinished(Slide slide)
+	{
+		SwitchSlide(direction);
+	}
+	
 	void SwitchSlide(int amount)
 	{
-		slides[currentIndex].OnSlideExit();
+		direction = amount > 0 ? 1 : -1;
 		
-		currentIndex += amount;
+		if(currentSlide.state == Slide.State.Active)
+		{
+			currentSlide.OnSlideExit();
+		}
+		else
+		{
+			currentSlide.OnSlideFinalise();
+			currentIndex += amount;
 		
-		slides[currentIndex].SetCameraTarget(cameraTransitionSpeed);
+			currentSlide = slides[currentIndex];
+			slides[currentIndex].SetCameraTarget(cameraTransitionSpeed);
+			slides[currentIndex].OnSlideEnter(this);
+		}
 		
-		slides[currentIndex].OnSlideEnter();
 	}
 }
 

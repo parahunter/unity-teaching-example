@@ -4,9 +4,23 @@ using System.Collections;
 public abstract class Slide : MonoBehaviour 
 {
 	
-	
+	[HideInInspector()]
 	[SerializeField]
-	private Transform cameraAnchor;
+	protected Transform cameraAnchor;
+	
+	protected SlideManager manager;
+	
+	public enum State
+	{
+		Inactive,
+		Active
+	}
+	
+	public State state
+	{
+		get;
+		protected set;
+	}
 	
 	public void Reset()
 	{
@@ -28,8 +42,31 @@ public abstract class Slide : MonoBehaviour
 		CameraControl.instance.GoToTransform( cameraAnchor, transitionTime);	
 	}
 	
-	public abstract void OnSlideEnter();
+	public void OnSlideEnter(SlideManager manager)
+	{
+		StopAllCoroutines();
+		this.manager = manager;
+		state = State.Active;
+		_OnSlideEnter();
+	}
 	
-	public abstract void OnSlideExit();
+	protected virtual void _OnSlideEnter()
+	{
+		
+	}
+	
+	public void OnSlideExit()
+	{
+		state = State.Inactive;
+		_OnSlideExit();
+	}
+	
+	protected virtual void _OnSlideExit()
+	{
+		
+	}
+	
+	
+	public abstract void OnSlideFinalise();
 	
 }
