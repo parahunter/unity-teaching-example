@@ -11,7 +11,7 @@ public class SlideMe : Slide
 	
 	// Update is called once per frame
 	void Update () {
-	
+		
 	}
 
 	#region implemented abstract members of Slide

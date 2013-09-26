@@ -7,7 +7,7 @@ Material:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_Name: Slide2
-  m_Shader: {fileID: 7, guid: 0000000000000000f000000000000000, type: 0}
+  m_Shader: {fileID: 4800000, guid: a73e9678b8f920741ad6d3c2bd5e05ec, type: 3}
   m_ShaderKeywords: []
   m_SavedProperties:
     serializedVersion: 2
