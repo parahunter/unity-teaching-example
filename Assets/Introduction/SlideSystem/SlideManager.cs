@@ -11,7 +11,6 @@ public class SlideManager : MonoBehaviour
 	
 	public float cameraTransitionSpeed = 1f;	
 	
-	
 	// Use this for initialization
 	void Start () 
 	{
@@ -23,13 +22,11 @@ public class SlideManager : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
 	{
-		
 		if(Input.GetKeyDown(KeyCode.LeftArrow))
 			RewindSlide();
 		
 		if(Input.GetKeyDown(KeyCode.RightArrow))
 			ForwardSlide();
-		
 	}
 	
 	public void ForwardSlide()
@@ -54,18 +51,26 @@ public class SlideManager : MonoBehaviour
 	{
 		direction = amount > 0 ? 1 : -1;
 		
-		if(currentSlide.state == Slide.State.Active)
+		if(currentSlide.state == Slide.State.Active && amount > 0)
 		{
 			currentSlide.OnSlideExit();
+			
+//			if(currentIndex + amount < slides.Count && currentIndex + amount > 0)
+//				slides[currentIndex + amount].OnSlideInit();
+//			
+//			if(currentIndex - amount < slides.Count && currentIndex - amount > 0)				
+//				slides[currentIndex - amount].OnSlideInit();
 		}
 		else
 		{
 			currentSlide.OnSlideFinalise();
 			currentIndex += amount;
-		
+			
 			currentSlide = slides[currentIndex];
 			slides[currentIndex].SetCameraTarget(cameraTransitionSpeed);
+			
 			slides[currentIndex].OnSlideEnter(this);
+			
 		}
 		
 	}

@@ -22,7 +22,7 @@ public abstract class Slide : MonoBehaviour
 		protected set;
 	}
 	
-	public void Reset()
+	public void Awake()
 	{
 		if(transform.Find("CameraAnchor") == null)
 		{		
@@ -65,7 +65,17 @@ public abstract class Slide : MonoBehaviour
 	{
 		
 	}
+
+	protected virtual void _OnSlideInit()
+	{
+		
+	}
+		
 	
+	public void OnSlideInit()
+	{
+		_OnSlideInit();
+	}
 	
 	public abstract void OnSlideFinalise();
 	
