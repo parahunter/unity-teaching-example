@@ -41,9 +41,13 @@
 				half2 shifted = radius * half2(cos(angle), sin(angle));
 				 
 				half4 col = tex2D(_MainTex, shifted  + 0.5);
-				half alpha = 1 - radius * 2;
 				
-				alpha = lerp(1, 0, (1 - alpha) * _twirliness);
+				// base alpha on how far we are from the center
+				half alpha = radius * 2;
+				
+				//this adjusts the amount of alpha based on distance to center based on the twirliness 
+				alpha = lerp(1, 0, alpha * _twirliness);
+				//this makes sure the shader goes completely transparent when the twirl is at max
 				alpha = lerp(alpha, 0, _twirliness * 0.2);
 				
 												
