@@ -3,54 +3,49 @@ using System.Collections;
 
 public class SlideFlexible : Slide 
 {
+	public AnimationCurve curve;
 	
 	Renderer quadRenderer;
-	public float fadeTime = 0.5f;
+	Transform quad;
 	
-	
+	// Use this for initialization
 	void Start()
 	{
-		Transform quad = transform.Find("Quad");
+		quad = transform.Find("Quad");
 		quadRenderer = quad.renderer;
 		
 		UvProjector.ProjectUvs(new Transform[]{quad}, cameraAnchor, Camera.main); 
 	}
 	
-	protected override void _OnSlideExit ()
+	protected override void _OnSlideEnter ()
 	{
-		StartCoroutine(_AnimateFade());
-	}
-		
-	void _SetOpacity(float alpha)
-	{
-		quadRenderer.material.color = new Color(1, 1,1, alpha);
+		float twirliness = curve.Evaluate(0);
+		quadRenderer.material.SetFloat("_twirliness", twirliness);
+		quadRenderer.enabled = true;
 	}
 	
-	IEnumerator _AnimateFade()
+	protected override void _OnSlideExit ()
 	{
-		yield return StartCoroutine(pTween.To(fadeTime, 1,0, t =>
+		StartCoroutine(_AnimateTwirl());
+	}
+	
+	IEnumerator _AnimateTwirl()
+	{
+		yield return StartCoroutine(pTween.To(curve.lastTime(), 0, curve.lastTime(), t =>
 		{
-			_SetOpacity(t);
+			float twirliness = curve.Evaluate(t);
+			quadRenderer.material.SetFloat("_twirliness", twirliness);
 		}));
 		
 		manager.OnSlideFinished(this);
 	}
 	
-	protected override void _OnSlideEnter ()
-	{
-		_SetOpacity(1f);
-	}
-	
-	protected override void _OnSlideInit ()
-	{
-		_SetOpacity(1f);
-	}
-				
+
 	#region implemented abstract members of Slide
 	public override void OnSlideFinalise ()
 	{
-		StopAllCoroutines();
-		//throw new System.NotImplementedException ();
+		quadRenderer.enabled = false;
+		StopAllCoroutines();	
 	}
 	#endregion
 }
