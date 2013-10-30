@@ -809,8 +809,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   countPosition:
     serializedVersion: 2
-    x: 0
-    y: 0
+    x: 10
+    y: 10
     width: 200
     height: 50
   shootScript: {fileID: 1878947325}
@@ -1356,7 +1356,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: 1a87ad49afa676448833c4c707661605, type: 2}
+  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0

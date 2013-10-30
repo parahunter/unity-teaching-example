@@ -52,6 +52,11 @@ public class SlidePlatforms : Slide
 			_ReleaseBox();
 	}
 	
+	protected override void _OnSlideExit ()
+	{
+		StartCoroutine(_AnimateOut());
+	}
+	
 	protected override void _OnSlideEnter ()
 	{
 		base._OnSlideEnter ();
@@ -82,11 +87,11 @@ public class SlidePlatforms : Slide
 	{
 		if(counter >= _boxes.Length)
 		{
-			if(!animatingOut)
-			{
-				StartCoroutine(_AnimateOut());
-				animatingOut = true;
-			}
+//			if(!animatingOut)
+//			{
+//				StartCoroutine(_AnimateOut());
+//				animatingOut = true;
+//			}
 			
 			return;
 		}
@@ -111,7 +116,11 @@ public class SlidePlatforms : Slide
 			yield return new WaitForSeconds(timeBetweenSlurps);
 		}
 		
+		yield return new WaitForSeconds(slurpTime);
 		
+		
+		
+		transform.parent.GetComponent<SlideManager>().OnSlideFinished(this);
 	}
 	
 	IEnumerator _SlurpBox(Box box)
