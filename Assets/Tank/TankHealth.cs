@@ -19,7 +19,7 @@ public class TankHealth : MonoBehaviour
 		health = startHealth;
 	}
 	
-	public void GiveDamage(float damage)
+	public void TakeDamage(float damage)
 	{
 		health -= damage;
 		

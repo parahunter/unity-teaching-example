@@ -115,7 +115,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -264,7 +264,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -360,7 +360,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -396,6 +396,7 @@ GameObject:
   - 4: {fileID: 195377049}
   - 114: {fileID: 195377050}
   - 54: {fileID: 195377051}
+  - 114: {fileID: 195377052}
   m_Layer: 0
   m_Name: Tank
   m_TagString: Player
@@ -444,6 +445,18 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &195377052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 195377048}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d65a5f094553b574897cd3941594be0d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startHealth: 100
 --- !u!1 &213730919
 GameObject:
   m_ObjectHideFlags: 0
@@ -676,7 +689,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -743,7 +756,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -814,6 +827,7 @@ MonoBehaviour:
     width: 200
     height: 50
   shootScript: {fileID: 1878947325}
+  healthScript: {fileID: 195377052}
 --- !u!1 &497724094
 GameObject:
   m_ObjectHideFlags: 0
@@ -855,7 +869,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1222,7 +1236,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1289,7 +1303,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1505,7 +1519,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1639,7 +1653,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1817,7 +1831,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1884,7 +1898,7 @@ Renderer:
   m_LightmapIndex: 255
   m_LightmapTilingOffset: {x: 1, y: 1, z: 0, w: 0}
   m_Materials:
-  - {fileID: 2100000, guid: ffea68646dd3a0c4091ba12b9cbe7022, type: 2}
+  - {fileID: 2100000, guid: 2e4782174beb64246a49bfd35303a711, type: 2}
   m_SubsetIndices: 
   m_StaticBatchRoot: {fileID: 0}
   m_UseLightProbes: 0
@@ -1922,6 +1936,7 @@ GameObject:
   - 65: {fileID: 1878947324}
   - 23: {fileID: 1878947322}
   - 114: {fileID: 1878947325}
+  - 82: {fileID: 1878947326}
   m_Layer: 0
   m_Name: Cannon
   m_TagString: Untagged
@@ -1991,6 +2006,64 @@ MonoBehaviour:
   bulletPrefab: {fileID: 400000, guid: ea1783722126bbc43b479298a495fe9f, type: 2}
   shootVelocity: 30
   bulletCount: 10
+--- !u!82 &1878947326
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1878947320}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_audioClip: {fileID: 8300000, guid: 40428ab60be71b541a19538041388793, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
 --- !u!1 &1975226166
 GameObject:
   m_ObjectHideFlags: 0

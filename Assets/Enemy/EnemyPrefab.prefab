@@ -11,7 +11,7 @@ GameObject:
   - 65: {fileID: 6500000}
   m_Layer: 0
   m_Name: Collider
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -25,9 +25,12 @@ GameObject:
   m_Component:
   - 4: {fileID: 400002}
   - 54: {fileID: 5400000}
+  - 114: {fileID: 11400000}
+  - 114: {fileID: 11400002}
+  - 114: {fileID: 11400004}
   m_Layer: 0
-  m_Name: Enemy
-  m_TagString: Untagged
+  m_Name: EnemyPrefab
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -67,8 +70,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100002}
-  m_LocalRotation: {x: .497221202, y: -.497212142, z: .502769291, w: -.502766609}
-  m_LocalPosition: {x: -14.1775074, y: .362253606, z: 2.29841805}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 30}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 400000}
@@ -80,7 +83,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_LocalRotation: {x: -.504991889, y: .494957775, z: .494957894, w: .504991889}
+  m_LocalRotation: {x: -.500000596, y: -.499999404, z: -.499999553, w: .500000477}
   m_LocalPosition: {x: -.0409708023, y: 1.16391134, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
@@ -109,7 +112,7 @@ MeshFilter:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
-  m_Mesh: {fileID: 4300004, guid: 3ef433f8aab04374786c69c9bd0efd76, type: 3}
+  m_Mesh: {fileID: 4300000, guid: 000c7ac13aaae8940ad06502827de8e8, type: 3}
 --- !u!54 &5400000
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -123,7 +126,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!65 &6500000
 BoxCollider:
@@ -144,11 +147,48 @@ Animator:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 100004}
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 3ef433f8aab04374786c69c9bd0efd76, type: 3}
+  m_Avatar: {fileID: 9000000, guid: 000c7ac13aaae8940ad06502827de8e8, type: 3}
   m_Controller: {fileID: 0}
   m_CullingMode: 1
   m_ApplyRootMotion: 1
   m_AnimatePhysics: 0
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a6f27c1f395afd4ca7b529593ddc00f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  seekForcce: 10
+  forceMode: 5
+--- !u!114 &11400002
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 662313e4932976e42bb03d9a56a9e781, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damageToTank: 5
+--- !u!114 &11400004
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 100002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8bdbb266bd8f6964fb31d5034151853c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bullets: {fileID: 400000, guid: e1ab83874ff443c4f9ceb8f7b8e70686, type: 2}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

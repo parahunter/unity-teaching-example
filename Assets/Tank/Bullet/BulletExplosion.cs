@@ -22,6 +22,9 @@ public class BulletExplosion : MonoBehaviour
 			//if the game object also contains a rigidbody component then it reacts to physics, add an explosion force
 			if(collider.rigidbody)
 				collider.rigidbody.AddExplosionForce(explosionForce, transform.position, explosionRadius);
+			
+			if(collider.tag == "Enemy")
+				collider.SendMessageUpwards("Die");
 		}
 		
 		//create the explosion visualisation

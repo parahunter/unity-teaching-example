@@ -20,6 +20,9 @@ public class TankShoot : MonoBehaviour
 			//this is necessary in order for the bullet not to explode as soon as it is created
 			Physics.IgnoreCollision(collider, bullet.collider);
 			
+			//play sound
+			audio.Play();
+			
 			//add a speed to the bullet
 			bullet.rigidbody.AddForce(transform.forward * shootVelocity, ForceMode.VelocityChange); 
 			
