@@ -13,20 +13,7 @@ public class Cannon : MonoBehaviour
 	{
 		barrel = transform.Find("Barrel");
 	}
-	
-	void OnDrawGizmosSelected()
-	{
-		if(barrel == null)
-			Awake();
-	
-		float length = MaxDistanceTraveled(startSpeed, -barrel.rotation.eulerAngles.z, Physics.gravity.y);
-		
-		Gizmos.DrawLine(transform.position, transform.position + Vector3.right * length);
-		
-		
-		
-	}
-	
+				
 	void Update()
 	{
 		if(Input.GetButtonDown("Fire1"))
@@ -35,16 +22,33 @@ public class Cannon : MonoBehaviour
 	
 	void Fire()
 	{
-		Rigidbody cannonBall = (Rigidbody)Instantiate(cannonBallPrefab, transform.position, transform.rotation);
+		Rigidbody cannonBall = (Rigidbody)Instantiate(cannonBallPrefab, transform.position, Quaternion.identity);
 		
 		cannonBall.velocity = barrel.up * startSpeed;
 	}
 	
-	float MaxDistanceTraveled(float s, float a, float g)
+	public float MaxDistanceTraveled(float s, float a, float g)
 	{
 		float v2 = Mathf.Pow(s, 2);
 		float sin2a = Mathf.Sin( 2 * a);
 		
 		return (v2 * sin2a) / g;
 	}
+	
+	public void SetMaxDistanceTraveled(float d, float a, float g)
+	{
+		startSpeed = Mathf.Sqrt( ( (d * g ) / Mathf.Sin (2 * a ) ) );
+	}
+	
+	public float GetBulletHeight(float s, float a, float g, float x)
+	{
+		float s2 = s*s;
+		float cos2a = Mathf.Pow( Mathf.Cos(a) , 2);
+		float tanAMultX = Mathf.Tan(a) * x; 
+		
+		return ( g * Mathf.Pow(x, 2) / (2 * s2 * cos2a) ) + tanAMultX;
+	}
+	
+	
+	
 }
