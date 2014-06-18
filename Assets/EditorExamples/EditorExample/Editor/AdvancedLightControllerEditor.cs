@@ -16,6 +16,7 @@ public class AdvancedLightControllerEditor : Editor
 	string downArrow;
 	
 	SerializedObject serializedObject;
+	AdvancedLightController controller;
 		
 	SerializedProperty arrayCount;
 	SerializedProperty array;
@@ -30,6 +31,7 @@ public class AdvancedLightControllerEditor : Editor
 		serializedObject = new SerializedObject(target);
 		arrayCount = serializedObject.FindProperty(lightsCountPath);
 		array = serializedObject.FindProperty(lightsArrayPath);
+		controller = (AdvancedLightController)target;
 	}		
 		
 	UnityEngine.Object GetLightSource(int index)
@@ -50,18 +52,16 @@ public class AdvancedLightControllerEditor : Editor
 		SetLightSource(b, cachedObject);
 	}
 	
-	void Delete(int index)
+	void Delete(int index) //this is not done through SerializedProperty because it breaks when you use Undo
 	{
-		
+		controller.lightSources.RemoveAt(index);
 	}
 	
 	void Add()
 	{
 		ScriptableLightSource lightSource = ScriptableLightSource.CreateInstance<ScriptableLightSource>();
 				
-		arrayCount.intValue++;
-		
-		serializedObject.FindProperty( string.Format(lightsDataPath, arrayCount.intValue - 1)).objectReferenceValue = lightSource;
+		controller.lightSources.Add( lightSource );
 	}
 	
 	public override void OnInspectorGUI()
@@ -103,8 +103,10 @@ public class AdvancedLightControllerEditor : Editor
 				GUI.color = guiColor;
 				
 				if(GUILayout.Button("X", EditorStyles.miniButton, GUILayout.ExpandWidth(false)))
+				{
+					DestroyImmediate(lightSource); //need to clean up ScriptableObject
 					indexToDelete = i;
-									
+				}					
 			GUILayout.EndHorizontal();
 		}
 		

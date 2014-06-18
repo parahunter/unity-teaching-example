@@ -22,6 +22,11 @@ public class AdvancedLightController : MonoBehaviour
 			
 			counter++;
 		}
-		
+	}
+	
+	void OnDestroy()
+	{
+		foreach (ScriptableLightSource lightSource in lightSources)
+			DestroyImmediate(lightSource);
 	}
 }
