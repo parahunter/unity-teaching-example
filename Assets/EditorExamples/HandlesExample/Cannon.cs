@@ -7,6 +7,8 @@ public class Cannon : MonoBehaviour
 	public Rigidbody cannonBallPrefab;
 	
 	Transform barrel;
+	
+	[Range(0,20)]
 	public float startSpeed;
 	
 	void Awake()

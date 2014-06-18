@@ -41,6 +41,9 @@ public class CannonEditor : Editor
 	
 		float change = (newTargetPoint - targetPoint).magnitude;
 		
+		Undo.RecordObject(cannon.transform, "Changed cannon");
+		Undo.RecordObject(cannon, "Changed cannon");
+		
 		if(!Mathf.Approximately(change, 0))
 		{	
 			Vector3 toTargetPoint = newTargetPoint - cannon.transform.position;

@@ -96,8 +96,8 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
   m_PrefabInternal: {fileID: 911942016}
   m_GameObject: {fileID: 107250296}
-  m_LocalRotation: {x: 0, y: .415560961, z: 0, w: .90956533}
-  m_LocalPosition: {x: -4.15924263, y: 0, z: -3.97291636}
+  m_LocalRotation: {x: 0, y: .403513551, z: 0, w: .914973676}
+  m_LocalPosition: {x: -5.43013954, y: 0, z: -4.74009609}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2108772209}
@@ -116,7 +116,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallPrefab: {fileID: 5400000, guid: a8903c7ccbb325f4b83c3e1b328e9728, type: 2}
-  startSpeed: 7.322258
+  startSpeed: 8.80000019
 --- !u!1 &141075581
 GameObject:
   m_ObjectHideFlags: 0
@@ -459,7 +459,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -4.15924263
+      value: -5.43013954
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalPosition.y
@@ -467,7 +467,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalPosition.z
-      value: -3.97291636
+      value: -4.74009609
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.x
@@ -475,7 +475,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .415560961
+      value: .403513551
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.z
@@ -483,11 +483,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .90956533
+      value: .914973676
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: startSpeed
-      value: 7.322258
+      value: 8.80000019
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
@@ -519,7 +519,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.y
-      value: .68325299
+      value: .693745792
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.z
@@ -527,7 +527,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: m_LocalRotation.w
-      value: .730181813
+      value: .72021997
       objectReference: {fileID: 0}
     - target: {fileID: 11400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
       propertyPath: startSpeed
@@ -676,7 +676,7 @@ Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 14b1a78597cc08041b6082d63d6e270c, type: 2}
   m_PrefabInternal: {fileID: 951147515}
   m_GameObject: {fileID: 1284916132}
-  m_LocalRotation: {x: 0, y: .68325299, z: 0, w: .730181813}
+  m_LocalRotation: {x: 0, y: .693745792, z: 0, w: .72021997}
   m_LocalPosition: {x: -7.79059172, y: 0, z: -.551955163}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -696,7 +696,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   cannonBallPrefab: {fileID: 5400000, guid: a8903c7ccbb325f4b83c3e1b328e9728, type: 2}
-  startSpeed: 9.28140831
+  startSpeed: 9.22777557
 --- !u!1 &1352035311
 GameObject:
   m_ObjectHideFlags: 0
