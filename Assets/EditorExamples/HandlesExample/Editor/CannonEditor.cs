@@ -7,11 +7,13 @@ using UnityEditor;
 public class CannonEditor : Editor
 {
 	Cannon cannon;
+	Transform transform;
 	Transform barrel;
 	
 	void OnEnable()
 	{
 		cannon = (Cannon)target;
+		transform = cannon.transform;
 		barrel = cannon.transform.Find("Barrel");
 	}
 
@@ -23,29 +25,17 @@ public class CannonEditor : Editor
 		
 		float shootLength = cannon.MaxDistanceTraveled( startSpeed, a, g);
 		
-		Vector3[] trajectory = new Vector3[20];                                                                                                                
-		
-		for(int i = 0 ; i < trajectory.Length ; i++)
-		{
-			float x = ((float)i/ trajectory.Length) * shootLength;
-			float y = cannon.GetBulletHeight(startSpeed, a, g, x);
-			           
-			trajectory[i] = cannon.transform.position + cannon.transform.forward * x + cannon.transform.up * 0;
-			
-		}  
-		Handles.DrawPolyLine( trajectory );                                                                                                                                                                                                                                        
+		Handles.DrawLine(transform.position, transform.position + transform.forward * shootLength);
 		                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                        
-		Vector3 targetPoint = cannon.transform.position + cannon.transform.forward * shootLength;
-		
+		Vector3 targetPoint = transform.position + cannon.transform.forward * shootLength;
 		Vector3 newTargetPoint = Handles.FreeMoveHandle ( targetPoint, cannon.transform.rotation, 0.5f, Vector3.zero, Handles.CircleCap);
-	
 		float change = (newTargetPoint - targetPoint).magnitude;
 		
-		Undo.RecordObject(cannon.transform, "Changed cannon");
-		Undo.RecordObject(cannon, "Changed cannon");
-		
-		if(!Mathf.Approximately(change, 0))
-		{	
+		if(GUI.changed)	
+		{
+			Undo.RecordObject(cannon.transform, "Changed cannon");
+			Undo.RecordObject(cannon, "Changed cannon");
+				
 			Vector3 toTargetPoint = newTargetPoint - cannon.transform.position;
 			toTargetPoint.y = 0;
 			
@@ -54,6 +44,8 @@ public class CannonEditor : Editor
 			cannon.transform.forward = toTargetPoint;
 			
 			cannon.SetMaxDistanceTraveled( distance, a, g);
+			
+			EditorUtility.SetDirty(cannon);
 		}
 	}	
 }

@@ -8,8 +8,9 @@ public class Cannon : MonoBehaviour
 	
 	Transform barrel;
 	
-	[Range(0,20)]
 	public float startSpeed;
+	
+	//const float distanceMod = 1.04f;
 	
 	void Awake()
 	{
